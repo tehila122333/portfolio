@@ -9,8 +9,8 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Portfolio | Frontend Engineer",
-  description: "Frontend-focused engineer with expertise in React, TypeScript, and cloud-based systems.",
+  title: "Tehila Friedland | Frontend & Full-Stack Developer",
+  description: "Frontend & Full-Stack Developer skilled in building scalable, user-focused web applications. Experienced with React, Angular, Node.js, and cloud technologies.",
 };
 
 export default function RootLayout({
@@ -27,7 +27,7 @@ export default function RootLayout({
         </main>
         <footer className="border-t border-zinc-800 bg-zinc-950 py-8 mt-16">
           <div className="mx-auto max-w-6xl px-4 text-center text-sm text-zinc-500">
-            <p>&copy; {new Date().getFullYear()} Portfolio. Built with Next.js and Tailwind CSS.</p>
+            <p>&copy; {new Date().getFullYear()} Tehila Friedland. Built with Next.js and Tailwind CSS.</p>
           </div>
         </footer>
       </body>
