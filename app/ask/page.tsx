@@ -72,17 +72,18 @@ export default function AskPage() {
   };
 
   return (
-    <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6 lg:px-8">
-      <div className="mb-8">
-        <h1 className="text-4xl font-bold text-white mb-4">Ask My Portfolio</h1>
-        <p className="text-lg text-zinc-400">
-          Ask questions about my projects, skills, experience, or anything else in my portfolio.
+    <div className="mx-auto max-w-4xl px-4 py-20 sm:px-6 lg:px-8">
+      <div className="mb-12">
+        <h1 className="text-5xl lg:text-6xl font-bold text-white mb-4">Ask My Portfolio</h1>
+        <div className="h-1 w-20 bg-gradient-to-r from-[var(--accent-primary)] to-[var(--accent-secondary)] rounded-full mb-6"></div>
+        <p className="text-lg text-zinc-300 leading-relaxed">
+          Ask questions about my projects, skills, experience, or anything else in my portfolio. This AI-powered assistant is trained on my portfolio data.
         </p>
       </div>
 
       {/* Example questions */}
-      <div className="mb-6 border border-zinc-800 rounded-lg p-4">
-        <p className="text-sm text-zinc-400 mb-2">Try asking:</p>
+      <div className="mb-8 border border-[var(--border-subtle)] rounded-xl p-6 bg-gradient-to-br from-[var(--surface-mid)] to-[var(--surface-dark)]">
+        <p className="text-sm font-semibold text-zinc-400 uppercase tracking-widest mb-4">Suggested Questions:</p>
         <div className="flex flex-wrap gap-2">
           {[
             'What projects show React skills?',
@@ -93,7 +94,7 @@ export default function AskPage() {
             <button
               key={question}
               onClick={() => setInput(question)}
-              className="text-xs bg-zinc-800 text-zinc-300 px-3 py-1.5 rounded-md hover:bg-zinc-700 transition-colors"
+              className="text-xs bg-[var(--accent-tertiary-light)] text-[var(--accent-tertiary)] border border-[var(--accent-tertiary)]/30 px-4 py-2 rounded-lg hover:border-[var(--accent-tertiary)] transition-all duration-300 font-semibold hover:shadow-lg hover:shadow-[var(--accent-tertiary)]/20"
               disabled={isLoading}
             >
               {question}
@@ -103,8 +104,8 @@ export default function AskPage() {
       </div>
 
       {/* Chat messages */}
-      <div className="border border-zinc-800 rounded-lg bg-zinc-900/50 mb-4 h-[500px] overflow-y-auto p-4">
-        <div className="space-y-4">
+      <div className="border border-[var(--border-subtle)] rounded-xl bg-gradient-to-br from-[var(--surface-dark)] to-[#0a0a0d] mb-6 h-[500px] overflow-y-auto p-6 flex flex-col">
+        <div className="space-y-4 flex-1">
           {messages.map((message, index) => (
             <div
               key={index}
@@ -113,10 +114,10 @@ export default function AskPage() {
               }`}
             >
               <div
-                className={`max-w-[80%] rounded-lg p-4 ${
+                className={`max-w-[85%] rounded-xl p-4 ${
                   message.role === 'user'
-                    ? 'bg-white text-zinc-950'
-                    : 'bg-zinc-800 text-zinc-100'
+                    ? 'bg-gradient-to-r from-[var(--accent-primary)] to-[var(--accent-primary-hover)] text-black font-medium shadow-lg shadow-[var(--accent-primary)]/30'
+                    : 'bg-gradient-to-br from-[var(--surface-light)] to-[var(--surface-dark)] text-zinc-100 border border-[var(--border-subtle)]'
                 }`}
               >
                 <p className="text-sm leading-relaxed whitespace-pre-wrap">
@@ -128,11 +129,11 @@ export default function AskPage() {
 
           {isLoading && (
             <div className="flex justify-start">
-              <div className="bg-zinc-800 text-zinc-100 rounded-lg p-4">
+              <div className="bg-gradient-to-br from-[var(--surface-light)] to-[var(--surface-dark)] text-zinc-100 rounded-xl p-4 border border-[var(--border-subtle)]">
                 <div className="flex items-center space-x-2">
-                  <div className="w-2 h-2 bg-zinc-400 rounded-full animate-bounce" style={{ animationDelay: '0ms' }}></div>
-                  <div className="w-2 h-2 bg-zinc-400 rounded-full animate-bounce" style={{ animationDelay: '150ms' }}></div>
-                  <div className="w-2 h-2 bg-zinc-400 rounded-full animate-bounce" style={{ animationDelay: '300ms' }}></div>
+                  <div className="w-2 h-2 bg-[var(--accent-primary)] rounded-full animate-bounce" style={{ animationDelay: '0ms' }}></div>
+                  <div className="w-2 h-2 bg-[var(--accent-secondary)] rounded-full animate-bounce" style={{ animationDelay: '150ms' }}></div>
+                  <div className="w-2 h-2 bg-[var(--accent-tertiary)] rounded-full animate-bounce" style={{ animationDelay: '300ms' }}></div>
                 </div>
               </div>
             </div>
@@ -144,7 +145,7 @@ export default function AskPage() {
 
       {/* Error message */}
       {error && (
-        <div className="mb-4 p-3 bg-red-900/50 border border-red-800 rounded-lg text-red-200 text-sm">
+        <div className="mb-6 p-4 bg-red-900/20 border border-red-500/50 rounded-lg text-red-300 text-sm font-medium">
           {error}
         </div>
       )}
@@ -156,13 +157,13 @@ export default function AskPage() {
           value={input}
           onChange={(e) => setInput(e.target.value)}
           placeholder="Ask a question about my portfolio..."
-          className="flex-1 bg-zinc-900 border border-zinc-800 rounded-lg px-4 py-3 text-white placeholder-zinc-500 focus:outline-none focus:border-zinc-600"
+          className="flex-1 bg-gradient-to-r from-[var(--surface-mid)] to-[var(--surface-dark)] border border-[var(--border-subtle)] rounded-lg px-4 py-3 text-white placeholder-zinc-500 focus:outline-none focus:border-[var(--accent-primary)] transition-colors duration-300"
           disabled={isLoading}
         />
         <button
           type="submit"
           disabled={isLoading || !input.trim()}
-          className="bg-white text-zinc-950 px-6 py-3 rounded-lg font-medium hover:bg-zinc-200 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+          className="bg-gradient-to-r from-[var(--accent-primary)] to-[var(--accent-primary-hover)] text-black px-6 py-3 rounded-lg font-semibold hover:shadow-lg hover:shadow-[var(--accent-primary)]/50 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
         >
           {isLoading ? 'Sending...' : 'Send'}
         </button>

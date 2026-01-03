@@ -25,9 +25,30 @@ export default function RootLayout({
         <main className="min-h-screen">
           {children}
         </main>
-        <footer className="border-t border-zinc-800 bg-zinc-950 py-8 mt-16">
-          <div className="mx-auto max-w-6xl px-4 text-center text-sm text-zinc-500">
-            <p>&copy; {new Date().getFullYear()} Tehila Friedland. Built with Next.js and Tailwind CSS.</p>
+        <footer className="border-t border-[var(--border-subtle)] bg-gradient-to-t from-[#09090b] to-[#0f0f12] py-12 mt-20">
+          <div className="mx-auto max-w-6xl px-4">
+            <div className="grid gap-8 md:grid-cols-3 mb-8">
+              <div>
+                <h3 className="text-white font-bold mb-2">Portfolio</h3>
+                <p className="text-zinc-400 text-sm">Frontend & Full-Stack Developer crafting beautiful, performant web experiences.</p>
+              </div>
+              <div>
+                <h3 className="text-white font-bold mb-2">Quick Links</h3>
+                <ul className="text-zinc-400 text-sm space-y-1">
+                  <li><a href="/" className="hover:text-[var(--accent-primary)] transition-colors">Home</a></li>
+                  <li><a href="/projects" className="hover:text-[var(--accent-primary)] transition-colors">Projects</a></li>
+                  <li><a href="/experience" className="hover:text-[var(--accent-primary)] transition-colors">Experience</a></li>
+                  <li><a href="/skills" className="hover:text-[var(--accent-primary)] transition-colors">Skills</a></li>
+                </ul>
+              </div>
+              <div>
+                <h3 className="text-white font-bold mb-2">Connect</h3>
+                <p className="text-zinc-400 text-sm">Let's build something amazing together.</p>
+              </div>
+            </div>
+            <div className="border-t border-[var(--border-subtle)] pt-6 text-center text-xs text-zinc-500">
+              <p>&copy; {new Date().getFullYear()} Tehila Friedland. Built with Next.js and Tailwind CSS. <span className="text-[var(--accent-primary)]">Created with care.</span></p>
+            </div>
           </div>
         </footer>
       </body>

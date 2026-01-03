@@ -3,6 +3,32 @@
 :root {
   --background: #09090b;
   --foreground: #fafafa;
+
+  /* Primary Accent - Cyan/Electric Blue */
+  --accent-primary: #00d9ff;
+  --accent-primary-hover: #00b8d4;
+  --accent-primary-light: #00d9ff19;
+
+  /* Secondary Accent - Purple */
+  --accent-secondary: #a855f7;
+  --accent-secondary-hover: #9333ea;
+  --accent-secondary-light: #a855f71a;
+
+  /* Tertiary Accent - Emerald Green */
+  --accent-tertiary: #10b981;
+  --accent-tertiary-hover: #059669;
+  --accent-tertiary-light: #10b9811a;
+
+  /* Surface colors with gradient support */
+  --surface-dark: #0f0f12;
+  --surface-mid: #18181b;
+  --surface-light: #27272a;
+  --surface-lighter: #3f3f46;
+
+  /* Border colors */
+  --border-subtle: #27272a;
+  --border-default: #3f3f46;
+  --border-accent: #52525b;
 }
 
 @theme inline {
@@ -16,20 +42,74 @@ body {
   color: var(--foreground);
 }
 
-/* Custom scrollbar for dark theme */
+/* Smooth transitions throughout */
+* {
+  @apply transition-colors duration-300 ease-out;
+}
+
+/* Custom scrollbar for dark theme with accent color */
 ::-webkit-scrollbar {
   width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #18181b;
+  background: var(--surface-mid);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #3f3f46;
+  background: var(--surface-lighter);
   border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #52525b;
+  background: var(--accent-primary);
+}
+
+/* Focus states for accessibility */
+:focus-visible {
+  outline: 2px solid var(--accent-primary);
+  outline-offset: 2px;
+}
+
+/* Smooth animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(0, 217, 255, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(0, 217, 255, 0.5);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.6s ease-out;
+}
+
+.animate-glow {
+  animation: glow 3s ease-in-out infinite;
+}
+
+/* Gradient backgrounds */
+.gradient-primary {
+  background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary) 100%);
+}
+
+.gradient-accent {
+  background: linear-gradient(135deg, var(--accent-secondary) 0%, var(--accent-tertiary) 100%);
+}
+
+/* Surface with subtle gradient */
+.surface-gradient {
+  background: linear-gradient(135deg, var(--surface-mid) 0%, var(--surface-light) 100%);
 }
