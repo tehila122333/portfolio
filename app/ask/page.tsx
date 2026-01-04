@@ -12,7 +12,7 @@ export default function AskPage() {
   const [messages, setMessages] = useState<Message[]>([
     {
       role: 'assistant',
-      content: 'Hi! I can answer questions about this portfolio. Try asking me about projects, skills, or experience.',
+      content: 'Hi! I can help you learn about Tehila\'s professional background and technical expertise. Ask me anything about her experience, projects, or qualifications.',
     },
   ]);
   const [input, setInput] = useState('');
@@ -77,7 +77,7 @@ export default function AskPage() {
         <h1 className="text-5xl lg:text-6xl font-bold text-white mb-4">Ask My Portfolio</h1>
         <div className="h-1 w-20 bg-gradient-to-r from-[var(--accent-primary)] to-[var(--accent-secondary)] rounded-full mb-6"></div>
         <p className="text-lg text-zinc-300 leading-relaxed">
-          Ask questions about my projects, skills, experience, or anything else in my portfolio. This AI-powered assistant is trained on my portfolio data.
+          Ask questions about my background, technical skills, and professional experience. This AI assistant provides hiring-focused insights based on my portfolio.
         </p>
       </div>
 
@@ -86,10 +86,10 @@ export default function AskPage() {
         <p className="text-sm font-semibold text-zinc-400 uppercase tracking-widest mb-4">Suggested Questions:</p>
         <div className="flex flex-wrap gap-2">
           {[
-            'What projects show React skills?',
-            'Do you have cloud experience?',
-            'Tell me about ActivityProgress',
-            'What technologies do you use?',
+            'Is she recommended for a frontend role?',
+            'What complex systems has she built?',
+            'Does she have production experience?',
+            'What is her biggest technical achievement?',
           ].map((question) => (
             <button
               key={question}

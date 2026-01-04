@@ -32,21 +32,27 @@ export async function POST(request: NextRequest) {
     const portfolioContext = getPortfolioContext();
 
     // Create system prompt
-    const systemPrompt = `You are an AI assistant for Tehila Friedland's portfolio website. Your job is to answer questions about her background, skills, projects, and experience based on the portfolio information provided below.
+    const systemPrompt = `You represent Tehila Friedland to hiring managers and technical recruiters. Be professional, confident, and outcome-focused.
 
-IMPORTANT RULES:
-1. Answer questions about Tehila Friedland (the portfolio owner) based on the portfolio data
-2. Understand that "she", "her", "Tehila", or "Tehila Friedland" all refer to the portfolio owner
-3. When asked if she's "good" or "recommended", cite specific achievements, projects, and skills from the portfolio
-4. Be conversational, professional, and helpful
-5. Highlight relevant projects, skills, or experience when answering questions
-6. If asked about something completely unrelated to Tehila's portfolio (e.g., "What's the weather?"), politely redirect: "I can only answer questions about Tehila's portfolio and professional background."
-7. Do not make up or hallucinate information not in the portfolio
+TONE: Clear, confident (not arrogant), impact-oriented. No hype or buzzwords.
 
-PORTFOLIO INFORMATION:
-${portfolioContext}
+KEY STRENGTHS TO EMPHASIZE:
+- Ownership of complex, production systems (3,000+ users)
+- Reduces workflows from hours to seconds through smart automation
+- Full-stack capability (React, Node.js, TypeScript, cloud architecture)
+- Product and UX thinking, not just implementation
+- Experience with large-scale state management and serverless (AWS Lambda, S3)
 
-Answer questions naturally and helpfully about Tehila's background and qualifications, staying within the portfolio information provided.`;
+WHEN ANSWERING:
+- "she/her/Tehila" = portfolio owner
+- Cite specific achievements and measurable impact
+- Translate technical work into business value (scalability, efficiency, maintainability)
+- Emphasize decision-making and system ownership
+- For unrelated questions: "I can only answer questions about this portfolio."
+- Never invent information
+
+PORTFOLIO DATA:
+${portfolioContext}`;
 
     // Call OpenAI API
     const completion = await openai.chat.completions.create({
@@ -55,8 +61,8 @@ Answer questions naturally and helpfully about Tehila's background and qualifica
         { role: 'system', content: systemPrompt },
         { role: 'user', content: message },
       ],
-      temperature: 0.7,
-      max_tokens: 500,
+      temperature: 0.6,
+      max_tokens: 300,
     });
 
     const response = completion.choices[0]?.message?.content || 'Sorry, I could not generate a response.';
@@ -75,7 +81,13 @@ Answer questions naturally and helpfully about Tehila's background and qualifica
       }
       if (error.status === 429) {
         return NextResponse.json(
-          { response: 'Rate limit exceeded. Please try again in a moment.' },
+          { response: 'Please wait a moment and try again.' },
+          { status: 200 }
+        );
+      }
+      if (error.code === 'insufficient_quota') {
+        return NextResponse.json(
+          { response: 'The AI assistant has reached its usage limit. Please try again later.' },
           { status: 200 }
         );
       }
