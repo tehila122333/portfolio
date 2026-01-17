@@ -36,8 +36,8 @@ export default function RootLayout({
                 <h3 className="text-white font-bold mb-2">Quick Links</h3>
                 <ul className="text-zinc-400 text-sm space-y-1">
                   <li><a href="#hero" className="hover:text-[var(--accent-primary)] transition-colors">Home</a></li>
-                  <li><a href="#projects" className="hover:text-[var(--accent-primary)] transition-colors">Projects</a></li>
                   <li><a href="#experience" className="hover:text-[var(--accent-primary)] transition-colors">Experience</a></li>
+                  <li><a href="#projects" className="hover:text-[var(--accent-primary)] transition-colors">Projects</a></li>
                   <li><a href="#skills" className="hover:text-[var(--accent-primary)] transition-colors">Skills</a></li>
                 </ul>
               </div>
