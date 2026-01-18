@@ -61,34 +61,6 @@ export const portfolioData: PortfolioData = {
 
   projects: [
     {
-      id: "newspaper-delivery",
-      title: "Newspaper Delivery System",
-      description: "Full operational platform supporting 3,000+ customers with comprehensive delivery management capabilities.",
-      technologies: ["Next.js", "React", "TypeScript", "Node.js"],
-      highlights: [
-        "Built a complete platform serving over 3,000 active customers",
-        "Implemented admin dashboard with comprehensive management tools",
-        "Developed offline mobile views for field workers",
-        "Created advanced route-based logic for efficient delivery planning",
-        "Designed scalable architecture to handle high user volume",
-      ],
-      category: "fullstack",
-    },
-    {
-      id: "delivery-optimization",
-      title: "Delivery System Management Platform",
-      description: "End-to-end system management platform with intelligent optimization features for delivery operations.",
-      technologies: ["React", "Node.js", "TypeScript", "REST APIs"],
-      highlights: [
-        "Built full-stack platform handling frontend UI and backend logic",
-        "Designed optimization feature that automatically selects optimal insertion points for new delivery addresses",
-        "Reduced manual workflow time from hours to seconds",
-        "Improved overall system usability and workflow efficiency",
-        "Implemented real-time data processing and updates",
-      ],
-      category: "fullstack",
-    },
-    {
       id: "construction-monitoring",
       title: "Construction Monitoring Platform",
       description: "Feature development for a large-scale construction monitoring platform used by enterprise clients.",
@@ -102,6 +74,7 @@ export const portfolioData: PortfolioData = {
       ],
       category: "frontend",
     },
+    // Add more projects here
   ],
 
   experience: [
