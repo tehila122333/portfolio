@@ -7,6 +7,7 @@ export interface Project {
   technologies: string[];
   highlights: string[];
   category: 'frontend' | 'fullstack' | 'cloud';
+  githubLinks?: { label: string; url: string }[];
 }
 
 export interface Experience {
@@ -88,6 +89,10 @@ export const portfolioData: PortfolioData = {
         "Integrated PrimeNG component library for professional UI design",
       ],
       category: "fullstack",
+      githubLinks: [
+        { label: "Frontend", url: "https://github.com/tehila122333/Angular-Project" },
+        { label: "Backend API", url: "https://github.com/tehila122333/API-Project" },
+      ],
     },
   ],
 
