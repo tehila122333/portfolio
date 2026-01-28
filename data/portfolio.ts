@@ -17,6 +17,7 @@ export interface Experience {
   description: string;
   achievements: string[];
   technologies: string[];
+  link?: string;
 }
 
 export interface Skill {
@@ -92,6 +93,7 @@ export const portfolioData: PortfolioData = {
         "Handled both frontend UI development and backend logic implementation",
       ],
       technologies: ["React", "Node.js", "TypeScript", "REST APIs", "System Architecture"],
+      link: "https://beyond-service-webapp.vercel.app/",
     },
     {
       id: "castory",
@@ -107,6 +109,7 @@ export const portfolioData: PortfolioData = {
         "Enhanced code quality through peer reviews and adherence to best practices",
       ],
       technologies: ["React", "TypeScript", "GraphQL", "AWS Lambda", "AWS S3", "Agile"],
+      link: "https://castory-ai.com/",
     },
   ],
 
