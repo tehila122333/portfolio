@@ -79,20 +79,43 @@ export default function Navigation() {
             <div className="flex items-center space-x-1">
               {navLinks.map((link) => {
                 const isActive = activeSection === link.href.replace('#', '');
+                const isAskLink = link.label === 'Ask My Portfolio';
+
                 return (
                   <a
                     key={link.href}
                     href={link.href}
                     onClick={(e) => handleNavClick(e, link.href)}
-                    className={`relative rounded-md px-3 py-2 text-sm font-medium transition-all duration-300 ${
-                      isActive
+                    className={`relative rounded-md px-3 py-2 text-sm font-medium transition-all duration-300 group ${
+                      isAskLink
+                        ? isActive
+                          ? 'text-[var(--accent-secondary)] animate-pulseGlow'
+                          : 'text-[var(--accent-secondary)] hover:text-white'
+                        : isActive
                         ? 'text-[var(--accent-primary)]'
                         : 'text-zinc-400 hover:text-white'
                     }`}
                   >
-                    {link.label}
+                    <div className="flex items-center gap-1.5">
+                      {isAskLink && (
+                        <span className="inline-flex items-center justify-center w-4 h-4 animate-sparkle">
+                          <svg
+                            className="w-4 h-4"
+                            fill="currentColor"
+                            viewBox="0 0 20 20"
+                          >
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                          </svg>
+                        </span>
+                      )}
+                      {link.label}
+                    </div>
                     {isActive && (
-                      <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-[var(--accent-primary)] to-[var(--accent-secondary)]"></span>
+                      <span className={`absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r ${
+                        isAskLink
+                          ? 'from-[var(--accent-secondary)] to-pink-500'
+                          : 'from-[var(--accent-primary)] to-[var(--accent-secondary)]'
+                      }`}></span>
                     )}
                   </a>
                 );
@@ -123,17 +146,34 @@ export default function Navigation() {
             <div className="flex flex-col space-y-1">
               {navLinks.map((link) => {
                 const isActive = activeSection === link.href.replace('#', '');
+                const isAskLink = link.label === 'Ask My Portfolio';
+
                 return (
                   <a
                     key={link.href}
                     href={link.href}
                     onClick={(e) => handleNavClick(e, link.href)}
-                    className={`rounded-md px-3 py-2 text-sm font-medium transition-colors ${
-                      isActive
+                    className={`rounded-md px-3 py-2 text-sm font-medium transition-colors flex items-center gap-2 ${
+                      isAskLink
+                        ? isActive
+                          ? 'text-[var(--accent-secondary)] bg-[var(--accent-secondary-light)]'
+                          : 'text-[var(--accent-secondary)] hover:text-white hover:bg-[var(--surface-light)]'
+                        : isActive
                         ? 'text-[var(--accent-primary)] bg-[var(--accent-primary-light)]'
                         : 'text-zinc-400 hover:text-white hover:bg-[var(--surface-light)]'
                     }`}
                   >
+                    {isAskLink && (
+                      <span className="inline-flex items-center justify-center w-4 h-4 animate-sparkle">
+                        <svg
+                          className="w-4 h-4"
+                          fill="currentColor"
+                          viewBox="0 0 20 20"
+                        >
+                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                        </svg>
+                      </span>
+                    )}
                     {link.label}
                   </a>
                 );
