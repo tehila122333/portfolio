@@ -18,8 +18,14 @@ export default function AskSection() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
   const messagesEndRef = useRef<HTMLDivElement>(null);
+  const isInitialMount = useRef(true);
 
   useEffect(() => {
+    // Skip scroll on initial mount to prevent page jumping to Ask section
+    if (isInitialMount.current) {
+      isInitialMount.current = false;
+      return;
+    }
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   }, [messages]);
 
