@@ -75,7 +75,20 @@ export const portfolioData: PortfolioData = {
       ],
       category: "frontend",
     },
-    // Add more projects here
+    {
+      id: "chinese-auction",
+      title: "Chinese Auction Management System",
+      description: "A full-stack web application for managing Chinese auction sales operations, featuring user authentication, product catalog, shopping cart, and an automated raffle system.",
+      technologies: ["Angular", "TypeScript", "C#", ".NET Core", "SQL Server", "PrimeNG", "Entity Framework", "JWT"],
+      highlights: [
+        "Built complete full-stack solution with Angular frontend and C# .NET Core API",
+        "Implemented user authentication system with JWT tokens",
+        "Designed admin dashboard for inventory and donor management",
+        "Created automated raffle system with winner selection algorithm",
+        "Integrated PrimeNG component library for professional UI design",
+      ],
+      category: "fullstack",
+    },
   ],
 
   experience: [
