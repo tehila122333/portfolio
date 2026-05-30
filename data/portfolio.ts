@@ -98,11 +98,26 @@ export const portfolioData: PortfolioData = {
 
   experience: [
     {
+      id: "leadtrap",
+      role: "Full-Stack Developer",
+      company: "LeadTrap",
+      period: "03/2026 - Present",
+      description: "Building integrations and platform features for an AI-powered intake and lead-generation product used by 100+ ABA healthcare providers. Focused on making the CRM integrations layer more reliable, auditable, and self-configuring.",
+      achievements: [
+        "Designing CRM integration framework spanning HubSpot, GoHighLevel, Zoho, and ClickUp",
+        "Building a field-discovery system that samples client CRM contacts to auto-detect used fields, types, and pick-list options — eliminating manual mapping during onboarding",
+        "Replacing AI-prompt-based integration run conditions with deterministic column-driven boolean logic (AND/OR rules) for predictable, auditable triggers",
+        "Contributing to a system that automates lead qualification, follow-ups, and insurance capture for healthcare intake",
+      ],
+      technologies: ["TypeScript", "Node.js", "React", "REST APIs", "CRM Integrations (HubSpot, GHL, Zoho, ClickUp)"],
+      link: "https://leadtrap.com/",
+    },
+    {
       id: "beyond-service",
       role: "Full-Stack Developer",
       company: "Beyond Service",
-      period: "2025 - Present",
-      description: "Building end-to-end system management platforms, handling both frontend UI and backend logic with focus on workflow optimization and efficiency.",
+      period: "2025 - 03/2026",
+      description: "Built end-to-end system management platforms, handling both frontend UI and backend logic with focus on workflow optimization and efficiency.",
       achievements: [
         "Built an end-to-end system management platform from the ground up",
         "Designed optimization feature that automatically selects optimal insertion points for new delivery addresses",
