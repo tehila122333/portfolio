@@ -85,7 +85,7 @@ export default function ExperiencePage() {
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-[var(--accent-primary)] to-[var(--accent-secondary)] text-white font-semibold rounded-lg hover:opacity-90 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-[1.02]"
                   >
-                    <span>View Live Project</span>
+                    <span>{exp.linkLabel || 'View Live Project'}</span>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       className="h-4 w-4"

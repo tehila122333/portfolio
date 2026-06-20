@@ -19,6 +19,7 @@ export interface Experience {
   achievements: string[];
   technologies: string[];
   link?: string;
+  linkLabel?: string;
 }
 
 export interface Skill {
@@ -102,15 +103,16 @@ export const portfolioData: PortfolioData = {
       role: "Full-Stack Developer",
       company: "LeadTrap",
       period: "03/2026 - Present",
-      description: "Building integrations and platform features for an AI-powered intake and lead-generation product used by 100+ ABA healthcare providers. Focused on making the CRM integrations layer more reliable, auditable, and self-configuring.",
+      description: "Full-stack development on LeadTrap, an AI-powered intake and lead-generation platform serving 100+ ABA healthcare providers. Building core product features across a modern TypeScript stack, with a focus on the CRM integrations that connect clients' tools into one automated workflow.",
       achievements: [
-        "Designing CRM integration framework spanning HubSpot, GoHighLevel, Zoho, and ClickUp",
-        "Building a field-discovery system that samples client CRM contacts to auto-detect used fields, types, and pick-list options — eliminating manual mapping during onboarding",
-        "Replacing AI-prompt-based integration run conditions with deterministic column-driven boolean logic (AND/OR rules) for predictable, auditable triggers",
-        "Contributing to a system that automates lead qualification, follow-ups, and insurance capture for healthcare intake",
+        "Developing core product features across a TypeScript, Node.js, and React stack",
+        "Building and scaling the CRM integrations layer connecting HubSpot, GoHighLevel, Zoho, and ClickUp",
+        "Designing automation that streamlines client onboarding and lead qualification",
+        "Helping deliver a reliable, AI-driven platform trusted by 100+ healthcare providers",
       ],
       technologies: ["TypeScript", "Node.js", "React", "REST APIs", "CRM Integrations (HubSpot, GHL, Zoho, ClickUp)"],
       link: "https://leadtrap.com/",
+      linkLabel: "More about the company",
     },
     {
       id: "beyond-service",
