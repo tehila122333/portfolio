@@ -15,7 +15,7 @@ export default function ExperiencePage() {
         <h1 className="text-5xl lg:text-6xl font-bold text-white mb-4">Experience</h1>
         <div className="h-1 w-20 bg-gradient-to-r from-[var(--accent-primary)] to-[var(--accent-secondary)] rounded-full mb-6"></div>
         <p className="text-lg text-zinc-300 max-w-4xl leading-relaxed">
-          My professional journey showcasing key achievements, leadership, and technical expertise in software engineering and product development.
+          My professional journey showcasing key achievements and technical expertise across full-stack development and product engineering.
         </p>
       </div>
 
@@ -40,7 +40,15 @@ export default function ExperiencePage() {
                   {exp.role}
                 </h2>
                 <p className="text-lg text-[var(--accent-secondary)] font-semibold mb-2">{exp.company}</p>
-                <p className="text-sm text-zinc-400 font-medium">{exp.period}</p>
+                <div className="flex items-center gap-3">
+                  <p className="text-sm text-zinc-400 font-medium">{exp.period}</p>
+                  {exp.period.includes('Present') && (
+                    <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-[var(--accent-tertiary-light)] text-[var(--accent-tertiary)] border border-[var(--accent-tertiary)]/30">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[var(--accent-tertiary)] animate-pulse"></span>
+                      Current
+                    </span>
+                  )}
+                </div>
               </div>
 
               <p className="text-zinc-300 mb-6 leading-relaxed">
@@ -83,23 +91,44 @@ export default function ExperiencePage() {
                     href={exp.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-[var(--accent-primary)] to-[var(--accent-secondary)] text-white font-semibold rounded-lg hover:opacity-90 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-[1.02]"
+                    className={
+                      exp.linkType === 'company'
+                        ? 'inline-flex items-center gap-2 px-5 py-2.5 border border-[var(--accent-secondary)]/40 text-[var(--accent-secondary)] font-semibold rounded-lg hover:border-[var(--accent-secondary)] hover:bg-[var(--accent-secondary-light)] transition-all duration-300'
+                        : 'inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-[var(--accent-primary)] to-[var(--accent-secondary)] text-white font-semibold rounded-lg hover:opacity-90 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-[1.02]'
+                    }
                   >
                     <span>{exp.linkLabel || 'View Live Project'}</span>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="h-4 w-4"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      strokeWidth={2}
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                      />
-                    </svg>
+                    {exp.linkType === 'company' ? (
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-4 w-4"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        strokeWidth={1.8}
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21"
+                        />
+                      </svg>
+                    ) : (
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-4 w-4"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        strokeWidth={2}
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                        />
+                      </svg>
+                    )}
                   </a>
                 </div>
               )}

@@ -20,6 +20,7 @@ export interface Experience {
   technologies: string[];
   link?: string;
   linkLabel?: string;
+  linkType?: 'project' | 'company';
 }
 
 export interface Skill {
@@ -55,7 +56,7 @@ export const portfolioData: PortfolioData = {
   personal: {
     name: "Tehila Friedland",
     title: "Frontend & Full-Stack Developer",
-    bio: "Frontend & Full-Stack Developer skilled in building scalable, user-focused web applications. Experienced with React, Angular, Node.js, and cloud technologies. Fast learner with strong problem-solving abilities and a track record of creating impactful, efficiency-boosting features.",
+    bio: "Frontend & Full-Stack Developer skilled in building scalable, user-focused web applications with React, Angular, Node.js, and cloud technologies. A Claude Code expert who leverages the best AI development tools to ship high-quality, high-performance features faster — pairing strong problem-solving with a track record of impactful, efficiency-boosting work.",
     location: "Israel",
     email: "ftehila123@gmail.com",
     github: "https://github.com/tehila122333",
@@ -113,19 +114,19 @@ export const portfolioData: PortfolioData = {
       technologies: ["TypeScript", "Node.js", "React", "REST APIs", "CRM Integrations (HubSpot, GHL, Zoho, ClickUp)"],
       link: "https://leadtrap.com/",
       linkLabel: "More about the company",
+      linkType: "company",
     },
     {
       id: "beyond-service",
       role: "Full-Stack Developer",
       company: "Beyond Service",
       period: "2025 - 03/2026",
-      description: "Built end-to-end system management platforms, handling both frontend UI and backend logic with focus on workflow optimization and efficiency.",
+      description: "Built end-to-end system management platforms, owning both the frontend UI and backend logic with a focus on workflow optimization and efficiency.",
       achievements: [
-        "Built an end-to-end system management platform from the ground up",
-        "Designed optimization feature that automatically selects optimal insertion points for new delivery addresses",
-        "Reduced manual work from hours to seconds through intelligent automation",
-        "Improved overall workflow efficiency and system usability across the platform",
-        "Handled both frontend UI development and backend logic implementation",
+        "Built an end-to-end system management platform from the ground up, owning both frontend and backend",
+        "Designed an optimization feature that automatically routes new delivery addresses to their optimal stop",
+        "Cut manual work from hours to seconds through intelligent automation",
+        "Improved overall workflow efficiency and usability across the platform",
       ],
       technologies: ["React", "Node.js", "TypeScript", "REST APIs", "System Architecture"],
       link: "https://beyond-service-webapp.vercel.app/",
@@ -137,11 +138,10 @@ export const portfolioData: PortfolioData = {
       period: "2024 - 2025",
       description: "Delivered new features for a construction monitoring platform used by large-scale clients, working with modern frontend technologies and cloud services.",
       achievements: [
-        "Delivered production-ready features for enterprise construction monitoring platform",
-        "Worked with React, TypeScript, and GraphQL in a professional team environment",
-        "Integrated AWS services (Lambda, S3) for scalable cloud-based features",
+        "Delivered production-ready features for an enterprise construction monitoring platform",
+        "Integrated AWS services (Lambda, S3) for scalable, cloud-based functionality",
         "Collaborated in Agile sprints, contributing to improved team velocity",
-        "Enhanced code quality through peer reviews and adherence to best practices",
+        "Strengthened code quality through peer reviews and best practices",
       ],
       technologies: ["React", "TypeScript", "GraphQL", "AWS Lambda", "AWS S3", "Agile"],
       link: "https://castory-ai.com/",
@@ -149,6 +149,10 @@ export const portfolioData: PortfolioData = {
   ],
 
   skills: [
+    {
+      category: "AI & Development Tools",
+      items: ["Claude Code", "AI-Assisted Development", "Prompt Engineering", "LLM Integration", "OpenAI API"],
+    },
     {
       category: "Programming Languages",
       items: ["JavaScript", "TypeScript", "Python", "Java", "C#", "C"],
